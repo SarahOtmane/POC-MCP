@@ -72,6 +72,25 @@ async def lister_outils():
                 "properties": {},
                 "required": []
             }
+        ),
+        types.Tool(
+            name="search_notes",
+            description=(
+                "Cherche un mot-clé dans tous les fichiers du dossier notes/ "
+                "et retourne les fichiers qui contiennent ce mot. "
+                "À utiliser quand l'utilisateur veut trouver un document "
+                "sur un sujet précis sans connaître le nom du fichier."
+            ),
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "keyword": {
+                        "type": "string",
+                        "description": "Mot-clé à rechercher dans les fichiers, ex: budget"
+                    }
+                },
+                "required": ["keyword"]
+            }
         )
     ]
 
@@ -138,6 +157,40 @@ async def executer_outil(name: str, arguments: dict):
         return [types.TextContent(
             type="text",
             text=f"Fichiers disponibles dans notes/ :\n\n{liste}"
+        )]
+
+    if name == "search_notes":
+        keyword = arguments.get("keyword", "").lower()
+        notes_path = os.path.join(BASE_DIR, "notes")
+        resultats = []
+
+        for filename in sorted(os.listdir(notes_path)):
+            if not filename.endswith(".txt"):
+                continue
+            filepath = os.path.join(notes_path, filename)
+            with open(filepath, "r", encoding="utf-8") as fichier:
+                contenu = fichier.read()
+            if keyword in contenu.lower():
+                # Trouve la ligne qui contient le mot-clé
+                lignes = contenu.splitlines()
+                extraits = [
+                    f"  → {ligne.strip()}"
+                    for ligne in lignes
+                    if keyword in ligne.lower()
+                ]
+                resultats.append(
+                    f"📄 {filename}\n" + "\n".join(extraits[:2])
+                )
+
+        if not resultats:
+            return [types.TextContent(
+                type="text",
+                text=f"Aucun fichier ne contient le mot-clé '{keyword}'."
+            )]
+
+        return [types.TextContent(
+            type="text",
+            text=f"Fichiers contenant '{keyword}' :\n\n" + "\n\n".join(resultats)
         )]
 
     return [types.TextContent(type="text", text=f"Outil inconnu : {name}")]
