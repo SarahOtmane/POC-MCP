@@ -9,6 +9,9 @@ import asyncio
 # ── Initialisation du serveur ──────────────────────────
 app = Server("poc-mcp-sarah")
 
+# ── Chemin absolu du projet ────────────────────────────
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 # ── Coordonnées des villes supportées ─────────────────
 VILLES_COORDS = {
     "Paris":     {"latitude": 48.85, "longitude": 2.35},
@@ -65,7 +68,6 @@ async def executer_outil(name: str, arguments: dict):
 
     if name == "read_note":
         filename = arguments.get("filename", "")
-        BASE_DIR = os.path.dirname(os.path.abspath(__file__))
         filepath = os.path.join(BASE_DIR, "notes", filename)
 
         if not os.path.exists(filepath):
