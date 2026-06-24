@@ -65,7 +65,8 @@ async def executer_outil(name: str, arguments: dict):
 
     if name == "read_note":
         filename = arguments.get("filename", "")
-        filepath = os.path.join("notes", filename)
+        BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+        filepath = os.path.join(BASE_DIR, "notes", filename)
 
         if not os.path.exists(filepath):
             return [types.TextContent(

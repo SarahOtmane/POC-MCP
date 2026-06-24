@@ -27,21 +27,23 @@ Solution trouvée :
 
 ---
 
-## Session 2 — Outil read_note (date : \_\_\_)
+## Session 2 — Outil read_note (date : 24\06\2026)
 
 **Durée : 2h**
 
 Ce que j'ai fait :
 
-- [ ] Codé read_note(filename)
-- [ ] Testé avec fichier existant
-- [ ] Testé avec fichier inexistant
+- [x] Codé read_note(filename)
+- [x] Testé avec fichier existant
+- [x] Testé avec fichier inexistant
 
 Problèmes rencontrés :
-→
+→ il ne trouve pas projet.txt parce que le serveur cherche le fichier dans notes/ relatif à l'endroit où il est lancé, pas dans le dossier poc-mcp.
 
 Solution trouvée :
-→
+→ Remplacer filepath = os.path.join("notes", filename) par :
+BASE_DIR = os.path.dirname(os.path.abspath(**file**))
+filepath = os.path.join(BASE_DIR, "notes", filename)
 
 ---
 
