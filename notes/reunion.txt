@@ -1,0 +1,2 @@
+Réunion du 24 juin : validation du périmètre POC. 
+Deux outils retenus : read_note et get_weather.

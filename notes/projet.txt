@@ -1,0 +1,2 @@
+Projet MCP : POC Learning Lab. 
+Objectif : démontrer qu'un LLM peut lire des fichiers locaux et appeler des APIs via le protocole MCP.
