@@ -5,6 +5,7 @@ from mcp import types
 import httpx
 import os
 import asyncio
+from datetime import datetime
 
 # ── Initialisation du serveur ──────────────────────────
 app = Server("poc-mcp-sarah")
@@ -91,6 +92,19 @@ async def lister_outils():
                 },
                 "required": ["keyword"]
             }
+        ),
+        types.Tool(
+            name="get_date",
+            description=(
+                "Retourne la date et l'heure actuelles. "
+                "À utiliser quand l'utilisateur demande la date, le jour, "
+                "l'heure, ou veut savoir en quel moment on est."
+            ),
+            inputSchema={
+                "type": "object",
+                "properties": {},
+                "required": []
+            }
         )
     ]
 
@@ -171,7 +185,6 @@ async def executer_outil(name: str, arguments: dict):
             with open(filepath, "r", encoding="utf-8") as fichier:
                 contenu = fichier.read()
             if keyword in contenu.lower():
-                # Trouve la ligne qui contient le mot-clé
                 lignes = contenu.splitlines()
                 extraits = [
                     f"  → {ligne.strip()}"
@@ -191,6 +204,14 @@ async def executer_outil(name: str, arguments: dict):
         return [types.TextContent(
             type="text",
             text=f"Fichiers contenant '{keyword}' :\n\n" + "\n\n".join(resultats)
+        )]
+
+    if name == "get_date":
+        maintenant = datetime.now()
+        date_formatee = maintenant.strftime("%A %d %B %Y, %H:%M")
+        return [types.TextContent(
+            type="text",
+            text=f"Nous sommes le {date_formatee}."
         )]
 
     return [types.TextContent(type="text", text=f"Outil inconnu : {name}")]
