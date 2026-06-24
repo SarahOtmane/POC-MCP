@@ -59,6 +59,19 @@ async def lister_outils():
                 },
                 "required": ["city"]
             }
+        ),
+        types.Tool(
+            name="list_notes",
+            description=(
+                "Liste tous les fichiers disponibles dans le dossier notes/. "
+                "À utiliser quand l'utilisateur demande quels documents, fichiers "
+                "ou notes sont disponibles, ou avant de chercher un fichier précis."
+            ),
+            inputSchema={
+                "type": "object",
+                "properties": {},
+                "required": []
+            }
         )
     ]
 
@@ -106,6 +119,25 @@ async def executer_outil(name: str, arguments: dict):
         return [types.TextContent(
             type="text",
             text=f"Météo à {city} : {temperature}°C, vent {vitesse_vent} km/h."
+        )]
+
+    if name == "list_notes":
+        notes_path = os.path.join(BASE_DIR, "notes")
+        fichiers = [
+            f for f in os.listdir(notes_path)
+            if f.endswith(".txt")
+        ]
+
+        if not fichiers:
+            return [types.TextContent(
+                type="text",
+                text="Aucun fichier trouvé dans le dossier notes/."
+            )]
+
+        liste = "\n".join(f"- {f}" for f in sorted(fichiers))
+        return [types.TextContent(
+            type="text",
+            text=f"Fichiers disponibles dans notes/ :\n\n{liste}"
         )]
 
     return [types.TextContent(type="text", text=f"Outil inconnu : {name}")]
