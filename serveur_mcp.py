@@ -81,6 +81,30 @@ async def executer_outil(name: str, arguments: dict):
             text=f"Contenu de {filename} :\n\n{contenu}"
         )]
 
+    if name == "get_weather":
+        city = arguments.get("city", "Paris")
+        coords = VILLES_COORDS.get(city, VILLES_COORDS["Paris"])
+
+        async with httpx.AsyncClient() as client:
+            reponse = await client.get(
+                "https://api.open-meteo.com/v1/forecast",
+                params={
+                    "latitude":        coords["latitude"],
+                    "longitude":       coords["longitude"],
+                    "current_weather": True
+                },
+                timeout=10.0
+            )
+
+        data = reponse.json()
+        temperature = data["current_weather"]["temperature"]
+        vitesse_vent = data["current_weather"]["windspeed"]
+
+        return [types.TextContent(
+            type="text",
+            text=f"Météo à {city} : {temperature}°C, vent {vitesse_vent} km/h."
+        )]
+
     return [types.TextContent(type="text", text=f"Outil inconnu : {name}")]
 
 # ── Point d'entrée ─────────────────────────────────────
