@@ -104,6 +104,45 @@ KPI 2 validé ? OUI — Claude combine les 2 outils (read_note + get_weather) en
 
 ---
 
+## Session 6 : 3 nouveaux outils (date : 25/06/2026)
+
+**Durée : 1h**
+
+Ce que j'ai fait :
+
+- [x] Codé list_notes() — liste les fichiers disponibles
+- [x] Codé search_notes(keyword) — recherche mot-clé dans tous les fichiers
+- [x] Codé get_date() — retourne date et heure système
+- [x] Testé les 3 outils dans Claude Desktop
+
+Problèmes rencontrés :
+→ Aucun — la structure du serveur étant établie, ajouter un outil revient à copier le pattern existant.
+
+Solution trouvée :
+→ / Leçon : MCP est très extensible. Ajouter un outil = déclarer la description + écrire la fonction. 10-15 min par outil.
+
+---
+
+## Session 7 — Données de démo réalistes (date : 25/06/2026)
+
+**Durée : 30min**
+
+Ce que j'ai fait :
+
+- [x] Créé budget.txt — budget projet avec détail des dépenses
+- [x] Créé equipe.txt — composition de l'équipe et rôles
+- [x] Créé sprint.txt — état d'avancement du sprint en cours
+- [x] Créé decision.txt — journal des décisions techniques
+- [x] Mis à jour reunion.txt
+
+Problèmes rencontrés :
+→ Aucun
+
+Résultat :
+→ /
+
+---
+
 ## Limitations connues (Known Issues)
 
 → Les villes supportées par get_weather sont limitées à Paris, Lyon, Marseille et Villejuif (coordonnées codées en dur). Toute autre ville retombe sur Paris par défaut.
