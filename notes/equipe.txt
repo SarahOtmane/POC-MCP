@@ -1,0 +1,22 @@
+ÉQUIPE PROJET MCP — 2026
+
+Tech Lead : Sarah OTMANE
+- Rôle : architecture MCP, développement serveurs, coordination
+- Stack : Python, FastAPI, SDK MCP Anthropic
+
+Développeur senior : Rayan
+- Rôle : intégration APIs métier, tests
+- Stack : Python, Node.js
+
+Développeur : Amine
+- Rôle : développement outils MCP, documentation
+- Stack : Python, TypeScript
+
+Référent automatisation : Amir Amiour
+- Rôle : validation des cas d'usage, recette
+
+Supervisor projet : Wassim Benkhelifa
+- Rôle : pilotage, validation livrables
+
+Contact RH : rh@entreprise.fr
+Bureau : Villejuif, Tour Facto

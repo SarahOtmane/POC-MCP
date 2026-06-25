@@ -1,0 +1,25 @@
+DÉCISIONS TECHNIQUES — PROJET MCP
+
+DATE : 15/06/2026
+Décision : adopter MCP comme protocole standard
+Contexte : besoin d'interopérabilité entre LLM et outils internes
+Décideurs : Sarah OTMANE, Jeremy DELAUX
+Statut : VALIDÉ 
+
+DATE : 18/06/2026
+Décision : utiliser Python SDK MCP officiel (Anthropic)
+Contexte : meilleure compatibilité, doc officielle disponible
+Alternative écartée : LangChain (trop lourd pour le POC)
+Statut : VALIDÉ 
+
+DATE : 20/06/2026
+Décision : transport stdio pour le POC
+Contexte : simplicité maximale, zéro config réseau
+Alternative pour prod : HTTP+SSE pour serveurs distants
+Statut : VALIDÉ 
+
+DATE : 24/06/2026
+Décision : 5 outils pour la V2 du POC
+Contexte : enrichir le cas d'usage entreprise
+Outils retenus : read_note, get_weather, list_notes, search_notes, get_date
+Statut : VALIDÉ 

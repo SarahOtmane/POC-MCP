@@ -1,2 +1,21 @@
-Réunion du 24 juin : validation du périmètre POC. 
-Deux outils retenus : read_note et get_weather.
+RÉUNION DE VALIDATION — 24/06/2026
+
+Participants : Sarah OTMANE, Jeremy DELAUX, Frédéric RENAULT
+
+Ordre du jour :
+1. Validation du périmètre POC
+2. Choix des outils MCP
+3. Planning de livraison
+
+Décisions prises :
+- Périmètre validé : 2 outils minimum (read_note + get_weather)
+- Transport retenu : stdio local (zéro cloud pour le POC)
+- Client retenu : Claude Desktop
+- Deadline présentation : 30/06/2026
+
+Points d'attention :
+- Ne pas dépasser 2h de setup
+- Prioriser la démo live sur la qualité du code
+- Préparer un atelier classe de 20-30 min
+
+Prochaine réunion : 30/06/2026 pour la démo finale

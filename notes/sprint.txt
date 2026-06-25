@@ -1,0 +1,24 @@
+SPRINT 3 — SEMAINE DU 23/06/2026
+
+Objectif sprint : livrer le serveur MCP avec 5 outils validés
+
+DONE 
+- Outil read_note : lecture fichiers locaux
+- Outil get_weather : météo temps réel via open-meteo
+- Outil list_notes : liste des documents disponibles
+- Outil search_notes : recherche par mot-clé
+- Outil get_date : date et heure système
+- Intégration Claude Desktop validée
+- Tests KPI 1 et KPI 2 passés
+
+IN PROGRESS 
+- Données de démo réalistes (en cours)
+- Préparation atelier pédagogique
+
+TODO 
+- Slides présentation finale
+- Q&A jury
+- Mise à jour README et JOURNAL
+
+Vélocité : 8 points sur 10 prévus
+Prochain sprint : 30/06/2026

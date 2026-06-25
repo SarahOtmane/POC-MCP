@@ -1,0 +1,18 @@
+BUDGET PROJET MCP — 2026
+
+Total alloué : 15 000 €
+Dépensé à ce jour : 4 700 €
+Reste disponible : 10 300 €
+
+Détail des dépenses :
+- Formation équipe (3 devs × 2j × 400€) : 2 400 €
+- Développement serveurs MCP métier (5j × 400€) : 2 000 €
+- Infrastructure VPS OVH (1 an) : 60 €
+- API Anthropic (premiers tests) : 240 €
+
+Prochaines dépenses prévues :
+- Extension à 3 serveurs MCP supplémentaires : 3 200 €
+- Formation équipe produit : 1 600 €
+
+Validation budget : Jeremy DELAUX (chef de projet)
+Dernière mise à jour : 24/06/2026
